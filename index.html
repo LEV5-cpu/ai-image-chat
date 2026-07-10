@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Forge — AI Image & Video Chat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">◆</span>
+        <span class="brand-name">Forge</span>
+      </div>
+      <div class="modes" role="tablist">
+        <button class="mode-btn active" data-mode="text-to-image">Text → Image</button>
+        <button class="mode-btn" data-mode="image-to-image">Image → Image</button>
+        <button class="mode-btn" data-mode="image-to-video" title="Needs a paid provider — see README">Image → Video 🔒</button>
+      </div>
+      <div class="status" id="status">checking server…</div>
+    </header>
+
+    <main class="chat" id="chat">
+      <div class="empty-state" id="emptyState">
+        <p class="empty-title">Describe what you want to make.</p>
+        <p class="empty-sub">Switch modes above for image edits or animating a photo into a video clip.</p>
+      </div>
+    </main>
+
+    <form class="composer" id="composer">
+      <label class="attach" id="attachLabel" for="fileInput" title="Attach an image">
+        <span>＋</span>
+        <input type="file" id="fileInput" accept="image/*" hidden />
+      </label>
+      <div class="thumb-preview" id="thumbPreview" hidden>
+        <img id="thumbImg" alt="attached image" />
+        <button type="button" id="removeThumb">×</button>
+      </div>
+      <textarea id="promptInput" placeholder="A neon-lit alley in the rain, cinematic…" rows="1"></textarea>
+      <button type="submit" class="send-btn" id="sendBtn">Generate</button>
+    </form>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
